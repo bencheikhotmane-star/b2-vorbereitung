@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 from flask_cors import CORS # ⚠️ مهم جداً للتواصل بين Frontend و Backend
 
 app = Flask(__name__)
-# ⚠️ تمكين CORS للسماح لصفحة login.html بالتواصل مع هذا السيرفر
+# ⚠️ تمكين CORS للسماح لصفحة index.html بالتواصل مع هذا السيرفر
 CORS(app) 
 
 # *******************************************************************
