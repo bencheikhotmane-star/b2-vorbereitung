@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prüfung B2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            text-align: center;
+        }
+
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .nav-button {
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer; /* إضافة مؤشر عند الإشارة */
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        .home-button {
+            background-color: #007BFF;
+        }
+
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+
+        .logout-button {
+            background-color: #d9534f;
+        }
+
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+
+        .container {
+            background: rgb(254, 255, 225);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px 25px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            border-top: 6px solid #007BFF;
+        }
+
+        .container:nth-child(2n) {
+            border-top-color: #cc0000;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #444;
+            text-align: center;
+        }
+
+        .quiz-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        a.button {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #warningBox {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f81d1d;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        const ACCESS_KEY = 'site_access_token';
+        const REDIRECT_PAGE = "/"; // المسار الرئيسي الذي يعرض login.html
+
+        function checkAuthentication() {
+            const storedExpiration = localStorage.getItem(ACCESS_KEY);
+            const currentTime = new Date().getTime();
+
+            // إذا لم يكن هناك صلاحية أو انتهت، وجهه إلى صفحة الدخول
+            if (!storedExpiration || currentTime >= storedExpiration) {
+                // مسح التوكن المنتهي احتياطياً
+                if (storedExpiration) {
+                    localStorage.removeItem(ACCESS_KEY);
+                }
+                // التوجيه إلى المسار الرئيسي
+                window.location.replace(REDIRECT_PAGE);
+            }
+        }
+
+        // وظيفة الخروج اليدوي
+        function logout() {
+            localStorage.removeItem(ACCESS_KEY);
+            window.location.replace(REDIRECT_PAGE);
+        }
+
+        // تحقق من الصلاحية فور تحميل الصفحة
+        checkAuthentication();
+    </script>
+</head>
+
+<body>
+    <div class="header-buttons">
+        <a href="/" class="nav-button home-button">Home (Login)</a>
+        <button onclick="logout()" class="nav-button logout-button">Logout</button>
+    </div>
+
+
+    <div class="container">
+        <h1>Lesen Teil 1</h1>
+        <div class="quiz-buttons">
+            <a href="Lesen-Teil-1/Umwelt.html" class="button">Umwelt</a>
+            <a href="Lesen-Teil-1/Impfung.html" class="button">Impfung</a>
+            <a href="Lesen-Teil-1/Kinderhandy.html" class="button">Kinderhandy</a>
+            <a href="Lesen-Teil-1/Drogen.html" class="button">Drogen</a>
+            <a href="Lesen-Teil-1/Tanzkurs.html" class="button">Tanzkurs</a>
+            <a href="Lesen-Teil-1/Limonade.html" class="button">Limonade</a>
+            <a href="Lesen-Teil-1/Grundschule.html" class="button">Grundschule</a>
+            <a href="Lesen-Teil-1/Insekten.html" class="button">Insekten</a>
+            <a href="Lesen-Teil-1/Österreich.html" class="button">Österreich</a>
+            <a href="Lesen-Teil-1/Jugend-forscht.html" class="button">Jugend forscht</a>
+            <a href="Lesen-Teil-1/Sport-ist-Gesund.html" class="button">Sport ist Gesund</a>
+            <a href="Lesen-Teil-1/Inseln.html" class="button">Inseln</a>
+            <a href="Lesen-Teil-1/In-den-Alpen.html" class="button">In den Alpen</a>
+            <a href="Lesen-Teil-1/In-den-Alpen-2.html" class="button">In den Alpen 2</a>
+            <a href="Lesen-Teil-1/Kartoffel.html" class="button">Kartoffel</a>
+            <a href="Lesen-Teil-1/Bilder.html" class="button">Bilder</a>
+            <a href="Lesen-Teil-1/Licht.html" class="button">Licht</a>
+            <a href="Lesen-Teil-1/Spielen.html" class="button">Spielen</a>
+            <a href="Lesen-Teil-1/Programmieren.html" class="button">Programmieren</a>
+            <a href="Lesen-Teil-1/Trampoline.html" class="button">Trampoline</a>
+            <a href="Lesen-Teil-1/Benzin.html" class="button">Benzin</a>
+            <a href="Lesen-Teil-1/Kaffee.html" class="button">Kaffee</a>
+            <a href="Lesen-Teil-1/Bonbons.html" class="button">Bonbons</a>
+            <a href="Lesen-Teil-1/Geld.html" class="button">Geld</a>
+            <a href="Lesen-Teil-1/Auf-dem-Weg.html" class="button">Auf dem Weg</a>
+            <a href="Lesen-Teil-1/Schlafzug-1.html" class="button">Schlafzug 1</a>
+            <a href="Lesen-Teil-1/Schlafzug-2.html" class="button">Schlafzug 2</a>
+            <a href="Lesen-Teil-1/Keine-Zeit.html" class="button">Keine Zeit</a>
+            <a href="Lesen-Teil-1/Licht-(Neue).html" class="button">Licht (NEUE)</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Lesen Teil 2</h1>
+        <div class="quiz-buttons">
+            <a href="Lesen-Teil-2/Die-Schaufensterpuppe.html" class="button">Die Schaufensterpuppe</a>
+            <a href="Lesen-Teil-2/Österreich-Pool.html" class="button">Österreich</a>
+            <a href="Lesen-Teil-2/Parkuhren.html" class="button">Parkuhren</a>
+            <a href="Lesen-Teil-2/Traumfrau.html" class="button">Traumfrau</a>
+            <a href="Lesen-Teil-2/Kaufentscheidungen.html" class="button">Kaufentscheidungen</a>
+            <a href="Lesen-Teil-2/Millionäre.html" class="button">Millionäre</a>
+            <a href="Lesen-Teil-2/Gehirn.html" class="button">Gehirn</a>
+            <a href="Lesen-Teil-2/Verpackungen.html" class="button">Verpackungen</a>
+            <a href="Lesen-Teil-2/Kreditkarten.html" class="button">Kreditkarten</a>
+            <a href="Lesen-Teil-2/Krista-die-Kühe.html" class="button">Krista die Kühe</a>
+            <a href="Lesen-Teil-2/Ernährung.html" class="button">Ernährung</a>
+            <a href="Lesen-Teil-2/Kaffee.html" class="button">Kaffee</a>
+            <a href="Lesen-Teil-2/Kaffee-2.html" class="button">Kaffee 2</a>
+            <a href="Lesen-Teil-2/Großraumbüros.html" class="button">Großraumbüros</a>
+            <a href="Lesen-Teil-2/Familienglück.html" class="button">Familie</a>
+            <a href="Lesen-Teil-2/Babys.html" class="button">Babys</a>
+            <a href="Lesen-Teil-2/Karneval-von-Unna.html" class="button">Karneval von Unna</a>
+            <a href="Lesen-Teil-2/Mehrsprachige.html" class="button">Mehrsprachige</a>
+            <a href="Lesen-Teil-2/Gesundes-Essen.html" class="button">Gesundes Essen</a>
+            <a href="Lesen-Teil-2/Dienstmädchens.html" class="button">Dienstmädchen</a>
+            <a href="Lesen-Teil-2/Reitergruppe.html" class="button">Reitergruppe</a>
+            <a href="Lesen-Teil-2/Brigitte-Vollmer.html" class="button">Brigitte Vollmer</a>
+            <a href="Lesen-Teil-2/Nachtzug.html" class="button">Nachtzug</a>
+            <a href="Lesen-Teil-2/Google-Earth.html" class="button">Google Earth</a>
+            <a href="Lesen-Teil-2/Kellner.html" class="button">Kellner</a>
+            <a href="Lesen-Teil-2/Weniger-Euro.html" class="button">Weniger Euro</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Lesen Teil 3</h1>
+        <div class="quiz-buttons">
+            <a href="Lesen-Teil-3/Fernsehprogramm.html" class="button">Fernsehprogramm</a>
+            <a href="Lesen-Teil-3/Sport-ist-Gesund.html" class="button">Sport ist Gesund</a>
+            <a href="Lesen-Teil-3/Kellner.html" class="button">Kellner</a>
+            <a href="Lesen-Teil-3/Schwägerin.html" class="button">Schwägerin</a>
+            <a href="Lesen-Teil-3/Schwägerin-(das).html" class="button">Schwägerin(das)</a>
+            <a href="Lesen-Teil-3/DokumentarFilme.html" class="button">Dokumentarfilm</a>
+            <a href="Lesen-Teil-3/Wein-und-Insekten.html" class="button">Wein und Insekten</a>
+            <a href="Lesen-Teil-3/Grundschule.html" class="button">Grundschule</a>
+            <a href="Lesen-Teil-3/Kein-Zeit.html" class="button">Kein Zeit</a>
+            <a href="Lesen-Teil-3/Kein-Zeit2.html" class="button">Kein Zeit 2</a>
+            <a href="Lesen-Teil-3/Sport.html" class="button">Sport</a>
+            <a href="Lesen-Teil-3/Gärten.html" class="button">Gärten</a>
+            <a href="Lesen-Teil-3/Apotheker.html" class="button">Apotheker</a>
+            <a href="Lesen-Teil-3/Urlaub.html" class="button">Urlaub</a>
+            <a href="Lesen-Teil-3/Anwalt.html" class="button">Anwalt</a>
+            <a href="Lesen-Teil-3/Der-Hund.html" class="button">Der Hund</a>
+            <a href="Lesen-Teil-3/Musik.html" class="button">Musik</a>
+            <a href="Lesen-Teil-3/Haushalt.html" class="button">Haushalt</a>
+            <a href="Lesen-Teil-3/Musikinstrumente.html" class="button">Musikinstrumente</a>
+            <a href="Lesen-Teil-3/Schiffsreise.html" class="button">Schiffsreise</a>
+            <a href="Lesen-Teil-3/Ausflug.html" class="button">Ausflug</a>
+            <a href="Lesen-Teil-3/Schwägerin-Gesund.html" class="button">Schwägerin Gesund</a>
+            <a href="Lesen-Teil-3/Übersetzerin.html" class="button">Übersetzerin</a>
+            <a href="Lesen-Teil-3/Tierdokumentationen.html" class="button">Tierdokumentationen</a>
+            <a href="Lesen-Teil-3/Schlafzug.html" class="button">Schlafzug</a>
+            <a href="Lesen-Teil-3/Bonbons.html" class="button">Bonbons</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Sprachbausteine Teil 1</h1>
+        <div class="quiz-buttons">
+            <a href="Sprachbausteine-Teil-1/Heer-Martini.html" class="button">Herr Martini</a>
+            <a href="Sprachbausteine-Teil-1/Judith-oder-Lina.html" class="button">Judith oder Lina</a>
+            <a href="Sprachbausteine-Teil-1/Igor.html" class="button">Igor</a>
+            <a href="Sprachbausteine-Teil-1/Maria.html" class="button">Maria</a>
+            <a href="Sprachbausteine-Teil-1/Ida.html" class="button">Ida</a>
+            <a href="Sprachbausteine-Teil-1/Andrea.html" class="button">Andrea</a>
+            <a href="Sprachbausteine-Teil-1/Andrea2.html" class="button">Andrea 2</a>
+            <a href="Sprachbausteine-Teil-1/Autorinnen-und-Autoren.html" class="button">Autorinnen und Autoren</a>
+            <a href="Sprachbausteine-Teil-1/Familie-Geissler-oder-Dippold.html" class="button">Geissler oder Dippold</a>
+            <a href="Sprachbausteine-Teil-1/Herr-Dr-Dobromil.html" class="button">Herr Dr. Dobromil</a>
+            <a href="Sprachbausteine-Teil-1/Frau-Szabo.html" class="button">Frau Szabo</a>
+            <a href="Sprachbausteine-Teil-1/Frau-Szabo2.html" class="button">Frau Szabo 2</a>
+            <a href="Sprachbausteine-Teil-1/Corinna.html" class="button">Corinna</a>
+            <a href="Sprachbausteine-Teil-1/Justus-oder-Juhannas.html" class="button">Justus oder Juhannas</a>
+            <a href="Sprachbausteine-Teil-1/Justus-oder-Juhannas2.html" class="button">Justus oder Juhannas 2</a>
+            <a href="Sprachbausteine-Teil-1/Ferdinand-oder-Hallo-Phillip-oder-Hallo-Christopher.html" class="button">Ferdinand, Phillip, Christopher</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Paola.html" class="button">Liebe Paola</a>
+            <a href="Sprachbausteine-Teil-1/Liebes-Julian.html" class="button">Liebe Julian</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Lara.html" class="button">Liebe Lara</a>
+            <a href="Sprachbausteine-Teil-1/Lieber-David.html" class="button">Lieber David</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Maria-Lieber-Timur.html" class="button">Liebe Maria, Lieber Timur</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Vanessa.html" class="button">Liebe Vanessa</a>
+            <a href="Sprachbausteine-Teil-1/Frau-Goronsksa.html" class="button">Frau Goronsksa</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Karin.html" class="button">Liebe Karin</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Jutta.html" class="button">Liebe Jutta</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Meike.html" class="button">Liebe Meike</a>
+            <a href="Sprachbausteine-Teil-1/Hallo-Leon.html" class="button">Hallo Leon</a>
+            <a href="Sprachbausteine-Teil-1/Hallo-Clara.html" class="button">Hallo Clara</a>
+            <a href="Sprachbausteine-Teil-1/Lieber-Thomas.html" class="button">Lieber Thomas</a>
+            <a href="Sprachbausteine-Teil-1/Herr-Dr-Moosberger.html" class="button">Dr. Moosberger</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Lina-lieber-Florian.html" class="button">Lina & Florian</a>
+            <a href="Sprachbausteine-Teil-1/Liebe-Agnieszka.html" class="button">Liebe Agnieszka</a>
+            <a href="Sprachbausteine-Teil-1/Jens.html" class="button">Jens</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Sprachbausteine Teil 2</h1>
+        <div class="quiz-buttons">
+            <a href="Sprachbausteine-Teil-2/Theater-für-Kinder-und-Jugendliche.html" class="button">Theater für Kinder und Jugendliche</a>
+            <a href="Sprachbausteine-Teil-2/Im-Restaurants.html" class="button">Im Restaurant</a>
+            <a href="Sprachbausteine-Teil-2/Das-Fahrrad-ernsthafte-Konkurrenz-fürs-Auto.html" class="button">Das Fahrrad: ernsthafte Konkurrenz fürs Auto?</a>
+            <a href="Sprachbausteine-Teil-2/Haustieren.html" class="button">Haustieren</a>
+            <a href="Sprachbausteine-Teil-2/Liebesgrüße-aus-der-Kühltruhe.html" class="button">Liebesgrüße aus der Kühltruhe</a>
+            <a href="Sprachbausteine-Teil-2/Das-Schicksal-des-Braunbären.html" class="button">Braunbären</a>
+            <a href="Sprachbausteine-Teil-2/Ausbildung.html" class="button">Ausbildung</a>
+            <a href="Sprachbausteine-Teil-2/Skipiste.html" class="button">Skipiste</a>
+            <a href="Sprachbausteine-Teil-2/Jugend-diskutiert.html" class="button">Jugend diskutiert</a>
+            <a href="Sprachbausteine-Teil-2/Manipulierte-Bilder.html" class="button">Manipulierte Bilder</a>
+            <a href="Sprachbausteine-Teil-2/Haustieren.html" class="button">Haustieren</a>
+            <a href="Sprachbausteine-Teil-2/Schwarzarbeit.html" class="button">Schwarzarbeit</a>
+            <a href="Sprachbausteine-Teil-2/Handschrift.html" class="button">Handschrift</a>
+            <a href="Sprachbausteine-Teil-2/Sicherer-Schulweg.html" class="button">Schulweg</a>
+            <a href="Sprachbausteine-Teil-2/Höflichkeit.html" class="button">Höflichkeit</a>
+            <a href="Sprachbausteine-Teil-2/Obst-und-Gemüse.html" class="button">Obst und Gemüse</a>
+            <a href="Sprachbausteine-Teil-2/TV-Bilder.html" class="button">TV-Bilder</a>
+            <a href="Sprachbausteine-Teil-2/Freund-des-Menschen.html" class="button">Freund des Menschen</a>
+            <a href="Sprachbausteine-Teil-2/Bio.html" class="button">BIO</a>
+            <a href="Sprachbausteine-Teil-2/Erfolg.html" class="button">Erfolg</a>
+            <a href="Sprachbausteine-Teil-2/Deutschland.html" class="button">Deutschland</a>
+            <a href="Sprachbausteine-Teil-2/Joggen.html" class="button">Joggen</a>
+            <a href="Sprachbausteine-Teil-2/Maßgeschneidert.html" class="button">Maßgeschneidert</a>
+            <a href="Sprachbausteine-Teil-2/Der-Hund.html" class="button">Der Hund</a>
+            <a href="Sprachbausteine-Teil-2/Online—Sprachkurse.html" class="button">Online—Sprachkurse</a>
+            <a href="Sprachbausteine-Teil-2/Fische-sind-schlauer.html" class="button">Fische</a>
+            <a href="Sprachbausteine-Teil-2/Man(n)-kocht-selbst.html" class="button">Man(n) kocht selbst</a>
+            <a href="Sprachbausteine-Teil-2/Schönschrift-ist-wieder.html" class="button">Schönschrift</a>
+            <a href="Sprachbausteine-Teil-2/Kaffee-und-Kuchen.html" class="button">Kaffee und Kuchen</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Hören</h1>
+        <div class="quiz-buttons">
+            <a href="Hören/teil-1.html" class="button">Teil-1</a>
+            <a href="Hören/teil-2.html" class="button">Teil-2</a>
+            <a href="Hören/teil-3.html" class="button">Teil-3</a>
+        </div>
+    </div>
+
+    </body>
+
+</html>
