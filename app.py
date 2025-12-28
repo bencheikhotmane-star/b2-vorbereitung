@@ -16,9 +16,8 @@ ACCESS_CODES = {
    # "CODE24H": 1,        # كود صالح ليوم واحد
    # "CODE7J": 7,         # كود صالح لأسبوع
     "HERR.JAWAD": 7,         # كود صالح لأسبوع
-    "B2TRIAL": 30,       # كود صالح لشهر واحد
-    "MEDMALIK": 60,
-    "BADR2026S": 60,  # verment CIH
+    "MEDMALIK": 60,   # 12/12/25 verment CIH
+    "BADR2026S": 60,  # 27/12/25 verment CIH
     "MEDSAYAH": 60,
  #   "VIP2026": 365,      # كود صالح لسنة
              # كود صالح لـ 12 ساعة
