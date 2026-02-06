@@ -22,7 +22,7 @@ ACCESS_CODES = {
     "IKRAMDEUTSCH": 60,
     "MEDSAYAH": 60,
     "AMAL2026MZ": 60,
- #   "VIP2026": 365,      # كود صالح لسنة
+    "IKALBANE": 60,      # كود صالح لسنة
              # كود صالح لـ 12 ساعة
    "MBD57WECS1": 0.5,          # كود صالح لـ 12 ساعة
 }
