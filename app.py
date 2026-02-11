@@ -21,9 +21,9 @@ ACCESS_CODES = {
     "CHAIMAEDEUTSCH": 60,
     "IKRAMDEUTSCH": 60,
     "MEDSAYAH": 60,
-    "AMAL2026MZ": 60,
-    "BOUCHRA2026D": 60,
-    "ilyasse9000@#": 60,      # كود صالح لسنة
+    "AMAL2026MZ": 60,  # 27/01/26 verment CIH
+    "BOUCHRA2026D": 60, # 09/02/26 verment CIH
+    "ilyasse9000@#": 60,    # 06/02/26 verment CIH
              # كود صالح لـ 12 ساعة
    "MBD57WECS1": 0.5,          # كود صالح لـ 12 ساعة
 }
