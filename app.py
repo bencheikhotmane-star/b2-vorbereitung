@@ -14,7 +14,7 @@ CORS(app)
 ACCESS_CODES = {
     # الكود: عدد الأيام
    # "CODE24H": 1,        # كود صالح ليوم واحد
-   # "CODE7J": 7,         # كود صالح لأسبوع
+    "CODE7J": 7,         # كود صالح لأسبوع
     "HERR.JAWAD": 7,         # كود صالح لأسبوع
     # "MEDMALIK": 60,   # 12/12/25 verment CIH
     "BADR2026S": 60,  # 27/12/25 verment CIH
