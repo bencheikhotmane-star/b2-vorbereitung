@@ -23,6 +23,7 @@ ACCESS_CODES = {
     "MEDSAYAH": 60,
     "OUZAID&AY": 30,
     "MEDDEUTCH": 60,
+    "AMINE2026£": 30,
     "AMAL2026MZ": 60,  # 27/01/26 verment CIH
     "BOUCHRA2026D": 60, # 09/02/26 verment CIH
     "ilyasse9000@#": 60,    # 06/02/26 verment CIH
