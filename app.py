@@ -17,7 +17,7 @@ ACCESS_CODES = {
   #  "CODE9J": 7,         # كود صالح لأسبوع
     "HERR.JAWAD": 7,         # كود صالح لأسبوع
     # "MEDMALIK": 60,   # 12/12/25 verment CIH
-    "BADR2026S": 60,  # 27/12/25 verment CIH
+  #  "BADR2026S": 60,  # 27/12/25 verment CIH
     "CHAIMAEDEUTSCH": 60,
     "IKRAMDEUTSCH": 60,
     "MEDSAYAH": 60,
