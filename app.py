@@ -19,6 +19,7 @@ ACCESS_CODES = {
     # "MEDMALIK": 60,   # 12/12/25 verment CIH
   #  "BADR2026S": 60,  # 27/12/25 verment CIH
     "CHAIMAEDEUTSCH": 60,
+    "LMGHABAR": 60,
     "IKRAMDEUTSCH": 60,
     "MEDSAYAH": 60,
     "OUZAID&AY": 30,
