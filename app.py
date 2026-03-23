@@ -22,7 +22,7 @@ ACCESS_CODES = {
     "LMGHABAR": 60,
     "IKRAMDEUTSCH": 60,
     "MEDSAYAH": 60,
-    "OUZAID&AY": 30,
+   # "OUZAID&AY": 30,
     "MEDDEUTCH": 60,
     "AMINE2026£": 30,
     "AMAL2026MZ": 60,  # 27/01/26 verment CIH
